@@ -5,6 +5,7 @@ from rest_framework.response import Response
 # Create your views here.
 
 
-@api_view()
+# @api_view(['POST', 'GET'])
+@api_view(['POST'])
 def home(request):
     return Response({'status': 200, 'message': 'Hello from Django Rest Framework'})

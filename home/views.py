@@ -13,3 +13,13 @@ def home(request):
     serializer = StudentSerializer(student_obj, many=True)
 
     return Response({'status': 200, 'payload': serializer.data})
+
+
+@api_view(['POST'])
+def post_student(request):
+    data = request.data
+    serializer = StudentSerializer(data=request.data)
+    if not serializer.is_valid():
+        return Response({'status': 403, 'message': 'Something went wrong'})
+    serializer.save()
+    return Response({'status': 200, 'payload': serializer.data, 'message': 'Saved Successfully!'})

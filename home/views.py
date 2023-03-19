@@ -6,7 +6,16 @@ from .serializers import *
 # Create your views here.
 
 
+@api_view(['GET'])
+def get_book(request):
+    book_obj = Book.objects.all()
+    serializer = BookSerializer(book_obj, many=True)
+
+    return Response({'status': 200, 'payload': serializer.data})
+
 # @api_view(['POST', 'GET'])
+
+
 @api_view(['GET'])
 def home(request):
     student_obj = Student.objects.all()

@@ -34,3 +34,5 @@ class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         fields = '__all__'
+        # another method for serializer foreign key value
+        # depth=1 (but not customizable)

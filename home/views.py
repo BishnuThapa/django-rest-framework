@@ -24,7 +24,7 @@ def post_student(request):
     return Response({'status': 200, 'payload': serializer.data, 'message': 'Saved Successfully!'})
 
 
-# put for partial update & add partial=True at serializer object as line 33
+# PATCH for partial update & add partial=True at serializer object as line 33
 @api_view(['PUT'])
 def udpate_student(request, id):
     try:

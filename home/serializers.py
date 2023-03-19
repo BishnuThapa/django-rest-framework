@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Student
+from .models import *
 
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -19,3 +19,18 @@ class StudentSerializer(serializers.ModelSerializer):
                     raise serializers.ValidationError(
                         {'error': "Name cannot be numeric"})
         return data
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
+
+class BookSerializer(serializers.ModelSerializer):
+    # Foreignkey field
+    category = CategorySerializer()
+
+    class Meta:
+        model = Book
+        fields = '__all__'

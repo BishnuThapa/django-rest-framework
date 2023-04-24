@@ -5,6 +5,8 @@ from .models import *
 from .serializers import *
 # Create your views here.
 
+# MIXINS=> ARE A WAY OF REUSING VIEW LOGIC IN DJANGO REST FRAMEWORK
+
 
 @api_view(['GET'])
 def get_book(request):

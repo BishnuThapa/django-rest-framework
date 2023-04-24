@@ -18,7 +18,11 @@ class StudentAPI(APIView):
         return Response({'status': 200, 'payload': serializer.data})
 
     def post(self, request):
-        pass
+        serializer = StudentSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response({'status': 403, 'errors': serializer.errors, 'message': 'Something went wrong'})
+        serializer.save()
+        return Response({'status': 200, 'payload': serializer.data, 'message': 'Saved Successfully!'})
 
     def put(self, request):
         pass

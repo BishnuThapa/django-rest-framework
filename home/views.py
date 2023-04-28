@@ -30,7 +30,7 @@ class StudentAPI(APIView):
     def patch(self, request):
         pass
 
-    def delete(self, request):
+    def delete(self, request, id):
         try:
             student_obj = Student.objects.get(id=id)
             student_obj.delete()
